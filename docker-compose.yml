@@ -1,0 +1,18 @@
+services:
+  discord-screen:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: discord-screen
+    restart: unless-stopped
+    expose:
+      - "3333"
+    environment:
+      NODE_ENV: production
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
+
